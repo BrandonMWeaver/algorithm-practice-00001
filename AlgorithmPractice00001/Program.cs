@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,17 +24,20 @@ namespace AlgorithmPractice00001
             // Sort
             Console.Write("Srt: ");
             Sort(integerArray);
-            for (int i = 0; i < integerArray.Length; i++)
-            {
-                if (!(i == integerArray.Length - 1))
-                    Console.Write($"{integerArray[i]}, ");
-                else
-                    Console.WriteLine(integerArray[i]);
-            }
+            PrintArray(integerArray);
 
             // Sum
             Console.Write("Sum: ");
             Console.WriteLine(Sum(integerArray));
+
+            // Reverse
+            Console.Write("Rvs: ");
+            Reverse(integerArray);
+            PrintArray(integerArray);
+
+            // Average
+            Console.Write("Avg: ");
+            Console.WriteLine(Average(integerArray));
         }
 
         static int Max(int[] arr)
@@ -76,6 +80,37 @@ namespace AlgorithmPractice00001
             foreach (int i in arr)
                 sum += i;
             return sum;
+        }
+
+        static void Reverse(int[] arr)
+        {
+            int i = 0;
+            int j = arr.Length - 1;
+            while (i < arr.Length)
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+                if (i < j) break;
+            }
+        }
+
+        static int Average(int[] arr)
+        {
+            return Sum(arr) / arr.Length;
+        }
+
+        static void PrintArray(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (!(i == arr.Length - 1))
+                    Console.Write($"{arr[i]}, ");
+                else
+                    Console.WriteLine(arr[i]);
+            }
         }
     }
 }
