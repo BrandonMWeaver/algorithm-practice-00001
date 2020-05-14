@@ -13,20 +13,27 @@ namespace AlgorithmPractice00001
             int[] integerArray = { 20, 15, 5, 25, 45, 30, 35 };
 
             // Max
+            Console.Write("Max: ");
             Console.WriteLine(Max(integerArray));
 
             // Min
+            Console.Write("Min: ");
             Console.WriteLine(Min(integerArray));
 
             // Sort
+            Console.Write("Srt: ");
             Sort(integerArray);
-            for(int i = 0; i < integerArray.Length; i++)
+            for (int i = 0; i < integerArray.Length; i++)
             {
                 if (!(i == integerArray.Length - 1))
                     Console.Write($"{integerArray[i]}, ");
                 else
                     Console.WriteLine(integerArray[i]);
             }
+
+            // Sum
+            Console.Write("Sum: ");
+            Console.WriteLine(Sum(integerArray));
         }
 
         static int Max(int[] arr)
@@ -61,6 +68,14 @@ namespace AlgorithmPractice00001
                         arr[j] = arr[j + 1];
                         arr[j + 1] = temp;
                     }
+        }
+
+        static int Sum(int[] arr)
+        {
+            int sum = 0;
+            foreach (int i in arr)
+                sum += i;
+            return sum;
         }
     }
 }
