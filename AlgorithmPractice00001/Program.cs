@@ -11,8 +11,22 @@ namespace AlgorithmPractice00001
         static void Main(string[] args)
         {
             int[] integerArray = { 20, 15, 5, 25, 45, 30, 35 };
+
+            // Max
             Console.WriteLine(Max(integerArray));
+
+            // Min
             Console.WriteLine(Min(integerArray));
+
+            // Sort
+            Sort(integerArray);
+            for(int i = 0; i < integerArray.Length; i++)
+            {
+                if (!(i == integerArray.Length - 1))
+                    Console.Write($"{integerArray[i]}, ");
+                else
+                    Console.WriteLine(integerArray[i]);
+            }
         }
 
         static int Max(int[] arr)
@@ -35,6 +49,18 @@ namespace AlgorithmPractice00001
                     min = i;
             }
             return min;
+        }
+
+        static void Sort(int[] arr)
+        {
+            for (int i = arr.Length - 1; i > 0; i--)
+                for (int j = 0; j < i; j++)
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
         }
     }
 }
